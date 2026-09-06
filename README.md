@@ -35,19 +35,28 @@ Nintendo Switch판 **EVE rebirth terror** 비공식 한국어 패치입니다.
 </p>
 
 ### 타이틀 화면
-<img width="3514" height="1975" alt="스크린샷 2026-09-06 224558" src="https://github.com/user-attachments/assets/f2aa680d-59f5-4048-8a8b-94d1a4abd770" />
 
 타이틀 메뉴를 한글화했습니다.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f2aa680d-59f5-4048-8a8b-94d1a4abd770" width="60%" alt="타이틀 화면">
+</p>
+
 ### 게임 시작 경고문
-<img width="3496" height="1964" alt="스크린샷 2026-09-06 224112" src="https://github.com/user-attachments/assets/925b5152-4491-4c59-a6e9-1c27d5627d79" />
 
 게임 시작 시 표시되는 주의·경고문을 한글화했습니다.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/925b5152-4491-4c59-a6e9-1c27d5627d79" width="60%" alt="게임 시작 경고문">
+</p>
+
 ### 지도 화면
-<img width="3516" height="1953" alt="스크린샷 2026-09-06 224225" src="https://github.com/user-attachments/assets/445952e6-123b-4b8e-8c8a-e4f0fb1f6310" />
 
 지도에서 표시되는 장소명과 관련 화면을 한글화했습니다.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/445952e6-123b-4b8e-8c8a-e4f0fb1f6310" width="60%" alt="지도 화면">
+</p>
 
 ## 미번역 영역
 
