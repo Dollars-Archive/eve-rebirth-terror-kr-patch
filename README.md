@@ -31,8 +31,6 @@ Nintendo Switch판 **EVE rebirth terror** 비공식 한국어 패치입니다.
 
 <img src="assets/readme/action-02.jpg" width="60%" alt="조사·행동 선택 메뉴 2">
 
-<img src="assets/readme/action-03.jpg" width="60%" alt="조사·행동 선택 메뉴 3">
-
 ### 타이틀 화면
 
 타이틀 메뉴를 한글화했습니다.
