@@ -17,10 +17,9 @@ Nintendo Switch판 **EVE rebirth terror** 비공식 한국어 패치입니다.
 
 스토리 대사 및 이벤트 텍스트의 **한글화 및 검수를 완료했습니다.**
 
-<p align="center">
-  <img src="assets/readme/dialogue-01.jpg" width="49%">
-  <img src="assets/readme/dialogue-02.jpg" width="49%">
-</p>
+<img src="assets/readme/dialogue-01.jpg" width="60%" alt="대사 화면 1">
+
+<img src="assets/readme/dialogue-02.jpg" width="60%" alt="대사 화면 2">
 
 ### 조사·행동 선택 메뉴
 
@@ -28,35 +27,29 @@ Nintendo Switch판 **EVE rebirth terror** 비공식 한국어 패치입니다.
 
 일부 선택지는 원본 이미지에 포함된 일본어가 함께 표시될 수 있습니다.
 
-<p align="center">
-  <img src="assets/readme/action-01.jpg" width="32%">
-  <img src="assets/readme/action-02.jpg" width="32%">
-  <img src="assets/readme/action-03.jpg" width="32%">
-</p>
+<img src="assets/readme/action-01.jpg" width="60%" alt="조사·행동 선택 메뉴 1">
+
+<img src="assets/readme/action-02.jpg" width="60%" alt="조사·행동 선택 메뉴 2">
+
+<img src="assets/readme/action-03.jpg" width="60%" alt="조사·행동 선택 메뉴 3">
 
 ### 타이틀 화면
 
 타이틀 메뉴를 한글화했습니다.
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/f2aa680d-59f5-4048-8a8b-94d1a4abd770" width="60%" alt="타이틀 화면">
-</p>
+<img src="https://github.com/user-attachments/assets/f2aa680d-59f5-4048-8a8b-94d1a4abd770" width="60%" alt="타이틀 화면">
 
 ### 게임 시작 경고문
 
 게임 시작 시 표시되는 주의·경고문을 한글화했습니다.
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/925b5152-4491-4c59-a6e9-1c27d5627d79" width="60%" alt="게임 시작 경고문">
-</p>
+<img src="https://github.com/user-attachments/assets/925b5152-4491-4c59-a6e9-1c27d5627d79" width="60%" alt="게임 시작 경고문">
 
 ### 지도 화면
 
 지도에서 표시되는 장소명과 관련 화면을 한글화했습니다.
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/445952e6-123b-4b8e-8c8a-e4f0fb1f6310" width="60%" alt="지도 화면">
-</p>
+<img src="https://github.com/user-attachments/assets/445952e6-123b-4b8e-8c8a-e4f0fb1f6310" width="60%" alt="지도 화면">
 
 ## 미번역 영역
 
@@ -64,7 +57,7 @@ Nintendo Switch판 **EVE rebirth terror** 비공식 한국어 패치입니다.
 
 ### 옵션 화면
 
-<img width="45%" alt="옵션 화면" src="https://github.com/user-attachments/assets/170e9875-06e1-4020-8081-8bfb50ea5b95" />
+<img src="https://github.com/user-attachments/assets/170e9875-06e1-4020-8081-8bfb50ea5b95" width="60%" alt="옵션 화면">
 
 옵션 화면은 현재 일본어로 표시되며 **추가 번역 예정이 없습니다.**
 
