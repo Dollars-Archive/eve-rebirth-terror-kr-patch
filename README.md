@@ -35,7 +35,7 @@ Nintendo Switch판 **EVE rebirth terror** 비공식 한국어 패치입니다.
 
 타이틀 메뉴를 한글화했습니다.
 
-<img src="https://github.com/user-attachments/assets/f2aa680d-59f5-4048-8a8b-94d1a4abd770" width="80%" alt="타이틀 화면">
+
 
 ### 게임 시작 경고문
 
