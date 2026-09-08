@@ -49,15 +49,11 @@ Nintendo Switch판 **EVE rebirth terror** 비공식 한국어 패치입니다.
 
 <img src="https://github.com/user-attachments/assets/445952e6-123b-4b8e-8c8a-e4f0fb1f6310" width="80%" alt="지도 화면">
 
-## 미번역 영역
-
-현재 미번역 영역은 **옵션 화면**입니다.
-
 ### 옵션 화면
 
-<img src="https://github.com/user-attachments/assets/170e9875-06e1-4020-8081-8bfb50ea5b95" width="80%" alt="옵션 화면">
+<img width="3348" height="1820" alt="스크린샷 2026-09-08 193532" src="https://github.com/user-attachments/assets/d72e04d0-5c21-47c7-8f2d-5809ca729709" />
 
-옵션 화면은 현재 일본어로 표시되며 **추가 번역 예정이 없습니다.**
+옵션 화면도 한글화 추가 했습니다
 
 ## 다운로드
 
