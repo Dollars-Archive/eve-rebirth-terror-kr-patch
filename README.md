@@ -17,9 +17,9 @@ Nintendo Switch판 **EVE rebirth terror** 비공식 한국어 패치입니다.
 
 스토리 대사 및 이벤트 텍스트의 **한글화 및 검수를 완료했습니다.**
 
-<img width="3321" height="1860" alt="image" src="https://github.com/user-attachments/assets/fdc67543-3209-4499-9dcc-df6ac540b5e6" />
+<img src="https://github.com/user-attachments/assets/fdc67543-3209-4499-9dcc-df6ac540b5e6" width="80%" alt="image" />
 
-<img width="3321" height="1863" alt="스크린샷 2026-09-08 194149" src="https://github.com/user-attachments/assets/355f6ae1-ab60-4b40-8689-05f541fb0072" />
+<img src="https://github.com/user-attachments/assets/355f6ae1-ab60-4b40-8689-05f541fb0072" width="80%" alt="스크린샷 2026-09-08 194149" />
 
 ### 조사·행동 선택 메뉴
 
@@ -27,9 +27,9 @@ Nintendo Switch판 **EVE rebirth terror** 비공식 한국어 패치입니다.
 
 일부 선택지는 원본 이미지에 포함된 일본어가 함께 표시될 수 있습니다.
 
-<img width="3305" height="1849" alt="스크린샷 2026-09-08 193846" src="https://github.com/user-attachments/assets/36300013-dd08-40c5-9387-2c01988b69bd" />
+<img src="https://github.com/user-attachments/assets/36300013-dd08-40c5-9387-2c01988b69bd" width="80%" alt="스크린샷 2026-09-08 193846" />
 
-<img width="3323" height="1842" alt="스크린샷 2026-09-08 194055" src="https://github.com/user-attachments/assets/fd137cc9-b8e2-4b4b-a741-bad632976cd7" />
+<img src="https://github.com/user-attachments/assets/fd137cc9-b8e2-4b4b-a741-bad632976cd7" width="80%" alt="스크린샷 2026-09-08 194055" />
 
 ### 타이틀 화면
 
@@ -51,7 +51,7 @@ Nintendo Switch판 **EVE rebirth terror** 비공식 한국어 패치입니다.
 
 ### 옵션 화면
 
-<img width="3348" height="1820" alt="스크린샷 2026-09-08 193532" src="https://github.com/user-attachments/assets/d72e04d0-5c21-47c7-8f2d-5809ca729709" />
+<img src="https://github.com/user-attachments/assets/d72e04d0-5c21-47c7-8f2d-5809ca729709" width="80%" alt="스크린샷 2026-09-08 193532" />
 
 옵션 화면도 한글화 추가 했습니다
 
