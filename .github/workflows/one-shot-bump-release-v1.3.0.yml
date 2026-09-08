@@ -1,4 +1,4 @@
-name: One-shot bump Rebirth Terror release to v1.3.0
+name: One-shot retarget Rebirth Terror release to v1.3.0
 
 on:
   push:
@@ -10,10 +10,10 @@ permissions:
 
 jobs:
   bump-release:
-    if: github.event.head_commit.message == 'One-shot bump Rebirth Terror release to v1.3.0'
+    if: github.event.head_commit.message == 'One-shot retarget Rebirth Terror release to v1.3.0'
     runs-on: ubuntu-latest
     steps:
-      - name: Rename tag and replace v1.2.0 references
+      - name: Retarget release and replace all v1.2.0 references
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -27,23 +27,17 @@ jobs:
           RELEASE_JSON="$(gh api "repos/${REPO}/releases/${RELEASE_ID}")"
           BODY="$(printf '%s' "$RELEASE_JSON" | jq -r '.body // ""')"
           NAME="$(printf '%s' "$RELEASE_JSON" | jq -r '.name // ""')"
+          OLD_SHA="$(gh api "repos/${REPO}/git/ref/tags/${OLD_TAG}" --jq '.object.sha')"
 
           NEW_BODY="${BODY//v1.2.0/v1.3.0}"
           NEW_NAME="${NAME//v1.2.0/v1.3.0}"
 
-          OLD_SHA="$(gh api "repos/${REPO}/git/ref/tags/${OLD_TAG}" --jq '.object.sha')"
-
-          if ! gh api "repos/${REPO}/git/ref/tags/${NEW_TAG}" >/dev/null 2>&1; then
-            gh api --method POST "repos/${REPO}/git/refs" \
-              -f ref="refs/tags/${NEW_TAG}" \
-              -f sha="${OLD_SHA}"
-          fi
-
           jq -n \
             --arg tag_name "$NEW_TAG" \
+            --arg target_commitish "$OLD_SHA" \
             --arg name "$NEW_NAME" \
             --arg body "$NEW_BODY" \
-            '{tag_name:$tag_name,name:$name,body:$body}' > payload.json
+            '{tag_name:$tag_name,target_commitish:$target_commitish,name:$name,body:$body}' > payload.json
 
           gh api --method PATCH "repos/${REPO}/releases/${RELEASE_ID}" --input payload.json
 
@@ -55,8 +49,5 @@ jobs:
             exit 1
           fi
 
-          if gh api "repos/${REPO}/git/ref/tags/${OLD_TAG}" >/dev/null 2>&1; then
-            gh api --method DELETE "repos/${REPO}/git/refs/tags/${OLD_TAG}"
-          fi
-
-          echo 'Verified: release/tag and all release-body v1.2.0 references are now v1.3.0.'
+          gh api "repos/${REPO}/git/ref/tags/${NEW_TAG}" >/dev/null
+          echo 'Verified: release title, tag target and all body references are v1.3.0.'
