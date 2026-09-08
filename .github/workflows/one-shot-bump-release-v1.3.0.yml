@@ -1,4 +1,4 @@
-name: One-shot migrate Rebirth Terror release to v1.3.0
+name: One-shot finalize Rebirth Terror v1.3.0 migration
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   bump-release:
-    if: github.event.head_commit.message == 'One-shot migrate Rebirth Terror release to v1.3.0'
+    if: github.event.head_commit.message == 'One-shot finalize Rebirth Terror v1.3.0 migration'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -27,10 +27,10 @@ jobs:
           RELEASE_ID="379471357"
           OLD_TAG="v1.2.0"
           NEW_TAG="v1.3.0"
-          OLD_SHA="c67c52f1c8068dc5ff71fcb48b60fec9acd6f4ec"
+          TAG_SHA="f723fde4dfc3fb26e5d2f261967bafa15143b9ca"
 
           if ! git rev-parse "refs/tags/${NEW_TAG}" >/dev/null 2>&1; then
-            git tag "${NEW_TAG}" "${OLD_SHA}"
+            git tag "${NEW_TAG}" "${TAG_SHA}"
           fi
           git push origin "refs/tags/${NEW_TAG}"
 
