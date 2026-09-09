@@ -10,49 +10,19 @@ permissions:
 
 jobs:
   update-release:
-    if: github.event.head_commit.message == 'One-shot strike Android install guide'
+    if: github.event.head_commit.message == 'One-shot strike Android install guide v2'
     runs-on: ubuntu-latest
     steps:
       - name: Mark Android installation guide as temporarily inactive
         env:
           GH_TOKEN: ${{ github.token }}
+          NEW_B64: PCEtLSBBTkRST0lEX0lOU1RBTExfR1VJREVfUEFVU0VEX1NUQVJUIC0tPgo+IFshQ0FVVElPTl0KPiAqKuyVhOuemCBBbmRyb2lkIOyXkOuurOugiOydtO2EsCDshKTsuZgg7JWI64K064qUIO2YhOyerCDsgqzsmqkg7KSR7KeAIOyDge2DnOyeheuLiOuLpC4qKgo+IO2YuO2ZmOyEsSDrrLjsoJzqsIAg7ZW06rKw65CY66m0IOuLpOyLnCDslYjrgrTtlaAg7JiI7KCV7J2066mwLCDslYTrnpgg64K07Jqp7J2AIOq4sOyhtCDshKTsuZgg67Cp67KVIOuztOyhtOyaqeycvOuhnCDrgqjqsqjrkaHri4jri6QuCgp+fu2MqOy5mCDsmYTro4wg7ZuEIOyDneyEseuQnCBgRVZFLVJlYmlydGgtVGVycm9yLUtSLXYxLjMuMC1Td2l0Y2gtQW5kcm9pZGAg7Y+0642U66W8IOyCrOyaqe2VqeuLiOuLpC5+fgoKfn7qsozsnoQg7IaN7ISxIOKGkiBgQWRkLW9uc2Ag4oaSIOyEpOy5mCDrmJDripQgYCtgIOKGkiBgTW9kYOyXkOyEnCDtlbTri7kg7Y+0642U66W8IOyEoO2Dne2VqeuLiOuLpC5+fgoKfn7snbzrsJjsoIHsnbgg64K067aAIOyggeyaqSDsnITsuZg6fn4KCn5+YC9zdG9yYWdlL2VtdWxhdGVkLzAvQW5kcm9pZC9kYXRhL29yZy5jaXRyb24uY2l0cm9uX2VtdS9maWxlcy9sb2FkL2B+fiAgCn5+YOKUlOKUgCAwMTAwOEJBMDBGMTcyMDAwYH5+ICAKfn5gICAg4pSU4pSAIEVWRS1SZWJpcnRoLVRlcnJvci1LUmB+fiAgCn5+YCAgICAgIOKUlOKUgCByb21mc2B+fiAgCn5+YCAgICAgICAgIOKUlOKUgCBkYXRhX2V2ZTJgfn4KCn5+QW5kcm9pZCAxMSDsnbTsg4Hsl5DshJzripQg7KeB7KCRIOqyveuhnOyXkCDrs7XsgqztlZjripQg6rKD67O064ukIENpdHJvbuydmCAqKkFkZC1vbnMg7ISk7LmYIOq4sOuKpSoqIOyCrOyaqeydhCDqtozsnqXtlanri4jri6QuICjsiqTsg7cg7LC46rOgKX5+CjwhLS0gQU5EUk9JRF9JTlNUQUxMX0dVSURFX1BBVVNFRF9FTkQgLS0+
         run: |
           set -euo pipefail
-          gh api repos/${GITHUB_REPOSITORY}/releases/379471357 > release.json
-          python - <<'PY'
-          import json
-          with open('release.json', encoding='utf-8') as f:
-              r = json.load(f)
-          body = (r.get('body') or '').replace('\r\n','\n').replace('\r','\n')
-          start_text = '패치 완료 후 생성된 `EVE-Rebirth-Terror-KR-v1.3.0-Switch-Android` 폴더를 사용합니다.'
-          end_text = 'Android 11 이상에서는 직접 경로에 복사하는 것보다 Citron의 **Add-ons 설치 기능** 사용을 권장합니다. (스샷 참고)'
-          start = body.index(start_text)
-          end = body.index(end_text, start) + len(end_text)
-          replacement = '''<!-- ANDROID_INSTALL_GUIDE_PAUSED_START -->
-> [!CAUTION]
-> **아래 Android 에뮬레이터 설치 안내는 현재 사용 중지 상태입니다.**
-> 호환성 문제가 해결되면 다시 안내할 예정이며, 아래 내용은 기존 설치 방법 보존용으로 남겨둡니다.
-
-~~패치 완료 후 생성된 `EVE-Rebirth-Terror-KR-v1.3.0-Switch-Android` 폴더를 사용합니다.~~
-
-~~게임 속성 → `Add-ons` → 설치 또는 `+` → `Mod`에서 해당 폴더를 선택합니다.~~
-
-~~일반적인 내부 적용 위치:~~
-
-~~`/storage/emulated/0/Android/data/org.citron.citron_emu/files/load/`~~  
-~~`└─ 01008BA00F172000`~~  
-~~`   └─ EVE-Rebirth-Terror-KR`~~  
-~~`      └─ romfs`~~  
-~~`         └─ data_eve2`~~
-
-~~Android 11 이상에서는 직접 경로에 복사하는 것보다 Citron의 **Add-ons 설치 기능** 사용을 권장합니다. (스샷 참고)~~
-<!-- ANDROID_INSTALL_GUIDE_PAUSED_END -->'''
-          body = body[:start] + replacement + body[end:]
-          with open('payload.json','w',encoding='utf-8') as f:
-              json.dump({'body': body}, f, ensure_ascii=False)
-          PY
+          BODY="$(gh api repos/${GITHUB_REPOSITORY}/releases/379471357 --jq '.body // ""')"
+          export BODY
+          python -c "import os,json,base64; body=os.environ['BODY'].replace('\\r\\n','\\n').replace('\\r','\\n'); start_text='패치 완료 후 생성된 `EVE-Rebirth-Terror-KR-v1.3.0-Switch-Android` 폴더를 사용합니다.'; end_text='Android 11 이상에서는 직접 경로에 복사하는 것보다 Citron의 **Add-ons 설치 기능** 사용을 권장합니다. (스샷 참고)'; start=body.index(start_text); end=body.index(end_text,start)+len(end_text); new=base64.b64decode(os.environ['NEW_B64']).decode(); open('payload.json','w',encoding='utf-8').write(json.dumps({'body':body[:start]+new+body[end:]},ensure_ascii=False))"
           gh api --method PATCH repos/${GITHUB_REPOSITORY}/releases/379471357 --input payload.json
           VERIFY="$(gh api repos/${GITHUB_REPOSITORY}/releases/379471357 --jq '.body // ""')"
           printf '%s' "$VERIFY" | grep -F 'ANDROID_INSTALL_GUIDE_PAUSED_START'
           printf '%s' "$VERIFY" | grep -F '아래 Android 에뮬레이터 설치 안내는 현재 사용 중지 상태입니다.'
-          printf '%s' "$VERIFY" | grep -F '~~패치 완료 후 생성된 `EVE-Rebirth-Terror-KR-v1.3.0-Switch-Android` 폴더를 사용합니다.~~'
