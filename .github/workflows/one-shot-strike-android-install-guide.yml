@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   update-release:
-    if: github.event.head_commit.message == 'One-shot strike Android install guide v2'
+    if: github.event.head_commit.message == 'One-shot strike Android install guide v3'
     runs-on: ubuntu-latest
     steps:
       - name: Mark Android installation guide as temporarily inactive
@@ -21,7 +21,7 @@ jobs:
           set -euo pipefail
           BODY="$(gh api repos/${GITHUB_REPOSITORY}/releases/379471357 --jq '.body // ""')"
           export BODY
-          python -c "import os,json,base64; body=os.environ['BODY'].replace('\\r\\n','\\n').replace('\\r','\\n'); start_text='패치 완료 후 생성된 `EVE-Rebirth-Terror-KR-v1.3.0-Switch-Android` 폴더를 사용합니다.'; end_text='Android 11 이상에서는 직접 경로에 복사하는 것보다 Citron의 **Add-ons 설치 기능** 사용을 권장합니다. (스샷 참고)'; start=body.index(start_text); end=body.index(end_text,start)+len(end_text); new=base64.b64decode(os.environ['NEW_B64']).decode(); open('payload.json','w',encoding='utf-8').write(json.dumps({'body':body[:start]+new+body[end:]},ensure_ascii=False))"
+          python -c "import os,json,base64; body=os.environ['BODY'].replace('\\r\\n','\\n').replace('\\r','\\n'); anchor=body.index('### Citron Android Nightly'); start=body.index('패치 완료 후 생성된 ',anchor); end_text='Android 11 이상에서는 직접 경로에 복사하는 것보다 Citron의 **Add-ons 설치 기능** 사용을 권장합니다. (스샷 참고)'; end=body.index(end_text,start)+len(end_text); new=base64.b64decode(os.environ['NEW_B64']).decode(); open('payload.json','w',encoding='utf-8').write(json.dumps({'body':body[:start]+new+body[end:]},ensure_ascii=False))"
           gh api --method PATCH repos/${GITHUB_REPOSITORY}/releases/379471357 --input payload.json
           VERIFY="$(gh api repos/${GITHUB_REPOSITORY}/releases/379471357 --jq '.body // ""')"
           printf '%s' "$VERIFY" | grep -F 'ANDROID_INSTALL_GUIDE_PAUSED_START'
