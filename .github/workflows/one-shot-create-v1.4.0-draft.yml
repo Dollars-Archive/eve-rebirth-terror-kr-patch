@@ -1,0 +1,58 @@
+name: One-shot create v1.4.0 draft release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  create-draft:
+    if: github.event.head_commit.message == 'One-shot create v1.4.0 draft release'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create v1.4.0 draft release from v1.3.0
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET_SHA: b6701ed5e4f7ed1cdeb91db1dad0fff3099be3ce
+        run: |
+          set -euo pipefail
+          if gh api repos/${GITHUB_REPOSITORY}/releases/tags/v1.4.0 >/dev/null 2>&1; then
+            echo 'v1.4.0 release already exists'
+            exit 1
+          fi
+          BODY="$(gh api repos/${GITHUB_REPOSITORY}/releases/tags/v1.3.0 --jq '.body // ""')"
+          export BODY
+          python - <<'PY'
+          import json, os
+          body = os.environ['BODY'].replace('\r\n','\n').replace('\r','\n').replace('v1.3.0','v1.4.0')
+          payload = {
+              'tag_name': 'v1.4.0',
+              'target_commitish': os.environ['TARGET_SHA'],
+              'name': 'EVE rebirth terror 한국어 패치 v1.4.0 (검수판)',
+              'body': body,
+              'draft': True,
+              'prerelease': False,
+          }
+          with open('payload.json','w',encoding='utf-8') as f:
+              json.dump(payload, f, ensure_ascii=False)
+          PY
+          gh api --method POST repos/${GITHUB_REPOSITORY}/releases --input payload.json > created.json
+          python - <<'PY'
+          import json
+          with open('created.json', encoding='utf-8') as f:
+              r = json.load(f)
+          assert r['tag_name'] == 'v1.4.0'
+          assert r['name'] == 'EVE rebirth terror 한국어 패치 v1.4.0 (검수판)'
+          assert r['draft'] is True
+          assert r.get('assets') == []
+          body = r.get('body') or ''
+          assert '# EVE rebirth terror 한국어 패치 v1.4.0' in body
+          assert 'EVE-Rebirth-Terror-KR-v1.4.0-Patcher' in body
+          assert 'EVE-Rebirth-Terror-KR-v1.4.0-Switch-Android' in body
+          assert 'EVE-Rebirth-Terror-KR-v1.4.0/' in body
+          print(r['id'])
+          print(r['html_url'])
+          PY
