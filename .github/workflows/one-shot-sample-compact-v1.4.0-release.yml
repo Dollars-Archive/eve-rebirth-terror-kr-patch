@@ -1,0 +1,37 @@
+name: One-shot sample compact v1.4.0 release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-draft:
+    if: github.event.head_commit.message == 'One-shot sample compact v1.4.0 release'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Replace v1.4.0 draft body with compact release format
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BODY_B64: IyBFVkUgcmViaXJ0aCB0ZXJyb3Ig7ZWc6rWt7Ja0IO2MqOy5mCB2MS40LjAKCiMjIHYxLjQuMCDrs4Dqsr0g7IKs7ZWtCgo+IFshTk9URV0KPiAqKu2YhOyerCBEcmFmdCDspIDruYQg7KSR7J6F64uI64ukLioqCj4g7Iuk7KCcIHYxLjQuMCDrs4Dqsr0g7IKs7ZWt7J2AIOuwsO2PrCDsoITsl5Ag7J20IOyYgeyXreyXkCDsoJXrpqztlaAg7JiI7KCV7J6F64uI64ukLgoKIyMg7Zi47ZmY7ISxCgotICoqUEM6Kiog7KCV7IOBIOyekeuPmSDtmZXsnbgKLSAqKk5pbnRlbmRvIFN3aXRjaCDsi6TquLA6Kiog7KCV7IOBIOyekeuPmSDtmZXsnbgKLSAqKkFuZHJvaWQ6Kiog7ZiE7J6sIOqyjOyehOydtCDsi6TtlonrkJjsp4Ag7JWK64qUIOusuOygnOqwgCDsnojslrQg7JuQ7J24IOyhsOyCrCDspJEKCj4gWyFXQVJOSU5HXQo+IEFuZHJvaWTsl5DshJwg7ZSM66CI7J207ZWY7IukIOu2hOuTpOydgCDtmITsnqwg67KE7KCEIOyggeyaqeydhCDrs7TrpZjtlZjqs6AsIOyImOygleuQnCDtjKjsuZjqsIAg67Cw7Y+s65CcIOuSpCDsnbTsmqntlbQg7KO87IS47JqULgoKIyMg7ISk7LmYIOuwqeuylQoKUm9tRlMg7KSA67mELCDtjKjsspgg7IKs7Jqp67KVLCBQQyAvIE5pbnRlbmRvIFN3aXRjaCAvIEFuZHJvaWQg7ISk7LmYIOuwqeuyleydgCDslYTrnpgg6rO17JqpIOyEpOy5mCDqsIDsnbTrk5zrpbwg7LC46rOg7ZW0IOyjvOyEuOyalC4KCioqW0VWRSByZWJpcnRoIHRlcnJvciDtlZzqta3slrQg7Yyo7LmYIOyEpOy5mCDqsIDsnbTrk5wgKElOU1RBTEwubWQpXShodHRwczovL2dpdGh1Yi5jb20vRG9sbGFycy1BcmNoaXZlL2V2ZS1yZWJpcnRoLXRlcnJvci1rci1wYXRjaC9ibG9iL21haW4vSU5TVEFMTC5tZCkqKgoKPiBbIVRJUF0KPiDshKTsuZgg67Cp67KV7J20IOuzgOqyveuQmOuNlOudvOuPhCDslY7snLzroZzripQg7J20IOqwgOydtOuTnCDtlZwg6rOz7JeQ7IScIOy1nOyLoCDrgrTsmqnsnYQg6rSA66as7ZWp64uI64ukLgoKIyMg64uk7Jq066Gc65OcCgpgRVZFLVJlYmlydGgtVGVycm9yLUtSLXYxLjQuMC1QYXRjaGVyLnppcGAKCj4gWyFOT1RFXQo+IOumtOumrOymiCDtjIzsnbzsnYAg67Cw7Y+sIOykgOu5hOqwgCDrgZ3rgpwg65KkIOyyqOu2gOuQqeuLiOuLpC4KCiMjIOyjvOydmOyCrO2VrQoK67O4IOuwsO2PrOuzuOyXkOuKlCAqKuqyjOyehCDrs7jtjrgg67CPIOybkOuzuCDqsozsnoQg642w7J207YSwLCDsm5Drs7ggUm9tRlMsIO2CpCDtjIzsnbwg65iQ64qUIOyZhOyEsSDqsozsnoQg7YyM7J287J20IO2PrO2VqOuQmOyWtCDsnojsp4Ag7JWK7Iq164uI64ukLioqCg==
+        run: |
+          set -euo pipefail
+          python -c "import os,base64,json; body=base64.b64decode(os.environ['BODY_B64']).decode('utf-8'); open('payload.json','w',encoding='utf-8').write(json.dumps({'body':body},ensure_ascii=False))"
+          gh api --method PATCH repos/${GITHUB_REPOSITORY}/releases/386385653 --input payload.json > updated.json
+          python - <<'PY'
+          import json
+          with open('updated.json', encoding='utf-8') as f:
+              r = json.load(f)
+          assert r['id'] == 386385653
+          assert r['draft'] is True
+          assert r['tag_name'] == 'v1.4.0'
+          body = r.get('body') or ''
+          assert 'INSTALL.md' in body
+          assert 'v1.4.0 변경 사항' in body
+          assert 'RomForge로 RomFS 준비' not in body
+          assert 'Switch 설치는 폴더 2개를 각각 다른 위치에 복사합니다' not in body
+          print('Compact draft release verified')
+          PY
