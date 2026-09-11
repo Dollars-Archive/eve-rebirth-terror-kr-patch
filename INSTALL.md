@@ -75,13 +75,19 @@ Switch
 
 v1.4.0은 실행 파일을 직접 교체하는 **direct-main** 방식입니다. IPS나 pchtxt를 따로 설치하지 않습니다.
 
-## 4. PC Eden 설치
+## 4. PC Citron Nightly 설치
+
+> [!TIP]
+> **Windows에서는 Citron Nightly 최신 빌드 사용을 권장합니다.**
 
 PC 결과 폴더의 `exefs`와 `romfs`를 게임의 모드 데이터 위치에 함께 복사합니다.
 
-## 5. Android Eden / Odin2 Portal 설치
+## 5. Android Citron Nightly / Odin2 Portal 설치
 
-Android 결과 안의 `01008BA00F172000` 폴더를 Eden의 `load` 또는 게임별 모드 위치에 복사합니다.
+> [!TIP]
+> **Android에서도 Citron Nightly 최신 빌드 사용을 권장합니다.**
+
+Android 결과 안의 `01008BA00F172000` 폴더를 Citron의 `load` 또는 게임별 모드 위치에 복사합니다.
 
 최종적으로 `01008BA00F172000\exefs\main`과 `01008BA00F172000\romfs\data_eve2`가 함께 있어야 합니다.
 
