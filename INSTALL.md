@@ -143,23 +143,29 @@ EVE-Rebirth-Terror-KR-v1.4.0-PC
 1. Citron에서 `EVE rebirth terror`를 찾습니다.
 2. 게임을 **우클릭**합니다.
 3. `Open Mod Data Location` 또는 **모드 데이터 위치 열기**를 선택합니다.
-4. 열린 게임 모드 폴더에 PC 결과물의 아래 두 폴더를 함께 복사합니다.
+4. 열린 폴더 안에 패처가 생성한 **`EVE-Rebirth-Terror-KR-v1.4.0-PC` 폴더 자체를 통째로 복사**합니다.
+5. 복사 후 아래처럼 보이면 정상입니다.
 
 ```text
-exefs
-romfs
+user
+└─ load
+   └─ 01008BA00F172000
+      └─ EVE-Rebirth-Terror-KR-v1.4.0-PC
+         ├─ exefs
+         │  └─ main
+         └─ romfs
+            └─ data_eve2
 ```
 
-5. 복사 후 최종적으로 모드 폴더 바로 아래에 `exefs`와 `romfs`가 보여야 합니다.
 6. Citron을 다시 실행하거나 게임 목록을 새로고침한 뒤 게임을 시작합니다.
 7. 타이틀 화면과 게임 내 대사가 한국어로 표시되는지 확인합니다.
 
 <img width="214" height="251" alt="Citron Windows 모드 데이터 위치 열기" src="https://github.com/user-attachments/assets/79b14a04-e304-42ba-8e91-59eac659f5da" />
 
-> [!WARNING]
-> `EVE-Rebirth-Terror-KR-v1.4.0-PC` 폴더 자체를 한 단계 더 안쪽에 넣지 마세요.
+> [!IMPORTANT]
+> **`exefs`와 `romfs`만 꺼내서 `01008BA00F172000` 바로 아래에 넣는 것이 아닙니다.**
 >
-> Citron이 읽는 게임 모드 위치에서 **`exefs`와 `romfs`가 바로 보여야 합니다.**
+> `Open Mod Data Location`으로 열린 위치에 **`EVE-Rebirth-Terror-KR-v1.4.0-PC` 폴더 자체를 넣으면 됩니다.**
 
 ---
 
@@ -277,7 +283,7 @@ SD:/atmosphere/contents/01008BA00F172000/romfs/data_eve2/...
 1. **게임 버전이 1.0.2인지 확인**
 2. RomForge 원본에 **Base + Update가 함께 반영**되어 있는지 확인
 3. 다른 한글패치 또는 모드가 섞인 원본을 사용하지 않았는지 확인
-4. PC에서는 게임 모드 위치 바로 아래에 `exefs`와 `romfs`가 있는지 확인
+4. PC에서는 `Open Mod Data Location`으로 열린 `01008BA00F172000` 폴더 안에 **`EVE-Rebirth-Terror-KR-v1.4.0-PC` 폴더 자체가 들어가 있는지 확인**
 5. Android에서는 `01008BA00F172000/exefs/main`과 `romfs/data_eve2`가 함께 있는지 확인
 6. Switch에서는 구버전 `01008BA00F172000` 폴더를 먼저 비웠는지 확인
 7. Switch 적용 후 **완전 재부팅**했는지 확인
