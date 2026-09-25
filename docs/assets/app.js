@@ -1,4 +1,5 @@
-// Load the published Pages copy instead of private raw GitHub content.\nconst RAW_URL = './INSTALL.md';
+// Load the published Pages copy instead of raw GitHub content.
+const RAW_URL = './INSTALL.md';
 const BLOB_BASE = 'https://github.com/Dollars-Archive/eve-rebirth-terror-kr-patch/blob/main/';
 
 const reader = document.getElementById('reader');
