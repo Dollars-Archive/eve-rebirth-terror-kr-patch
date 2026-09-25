@@ -1,4 +1,4 @@
-const RAW_URL = 'https://raw.githubusercontent.com/Dollars-Archive/eve-rebirth-terror-kr-patch/main/INSTALL.md';
+const RAW_URL = './INSTALL.md';
 const BLOB_BASE = 'https://github.com/Dollars-Archive/eve-rebirth-terror-kr-patch/blob/main/';
 
 const reader = document.getElementById('reader');
