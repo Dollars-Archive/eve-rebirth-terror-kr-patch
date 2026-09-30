@@ -30,6 +30,12 @@ Nintendo Switch판 **EVE rebirth terror** 비공식 한국어 패치입니다.
 
 >현재 **대부분의 주요 게임 화면과 게임 진행 관련 텍스트의 한국어화를 완료했습니다.**
 
+### 타이틀 화면
+
+>타이틀 메뉴를 한글화했습니다. (해당 스크린샷은 엔딩 후 나오는 타이틀 화면입니다)
+
+<img src="https://github.com/user-attachments/assets/93fc1efb-b57a-4955-85e0-c2852092b089" width="80%" alt="스크린샷 2026-09-08 210855" />
+
 ### 대사 / 이벤트
 
 >스토리 대사 및 이벤트 텍스트의 **한글화 및 검수를 완료했습니다.**
@@ -47,18 +53,6 @@ Nintendo Switch판 **EVE rebirth terror** 비공식 한국어 패치입니다.
 <img src="https://github.com/user-attachments/assets/36300013-dd08-40c5-9387-2c01988b69bd" width="80%" alt="스크린샷 2026-09-08 193846" />
 
 <img src="https://github.com/user-attachments/assets/fd137cc9-b8e2-4b4b-a741-bad632976cd7" width="80%" alt="스크린샷 2026-09-08 194055" />
-
-### 타이틀 화면
-
->타이틀 메뉴를 한글화했습니다. (해당 스크린샷은 엔딩 후 나오는 타이틀 화면입니다)
-
-<img src="https://github.com/user-attachments/assets/93fc1efb-b57a-4955-85e0-c2852092b089" width="80%" alt="스크린샷 2026-09-08 210855" />
-
-### 게임 시작 경고문
-
->게임 시작 시 표시되는 주의·경고문을 한글화했습니다.
-
-<img src="https://github.com/user-attachments/assets/925b5152-4491-4c59-a6e9-1c27d5627d79" width="80%" alt="게임 시작 경고문">
 
 ### 지도 화면
 
