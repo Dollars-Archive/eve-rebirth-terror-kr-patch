@@ -7,10 +7,24 @@ Nintendo Switch판 **EVE rebirth terror** 비공식 한국어 패치입니다.
 > [!TIP]
 > 설치 방법을 처음 보는 경우 GitHub의 `INSTALL.md` 원문보다 **[웹 설치 가이드](https://dollars-archive.github.io/eve-rebirth-terror-kr-patch/)**에서 보는 것을 권장합니다.
 
-## 지원 게임 버전
+## 게임 정보
 
-- **EVE rebirth terror 일본판**
-- **업데이트 1.0.2**
+| 항목 | 내용 |
+| --- | --- |
+| 원제 | EVE rebirth terror |
+| 플랫폼 | Nintendo Switch |
+| 장르 | 커맨드 선택식 어드벤처 |
+| 일본 발매일 | 2020년 2월 27일 |
+| CERO | D (17세 이상) |
+| 지원 판본 | Nintendo Switch 일본판 (다운로드판) |
+| Title ID | `01008BA00F172000` |
+| 패치 기준 업데이트 | 공식 Ver.1.0.2 |
+
+> [!NOTE]
+> 패치에는 게임 본편이나 공식 업데이트 파일이 포함되어 있지 않습니다.  
+> **사용자가 직접 보유한 `01008BA00F172000` 원본과 공식 Ver.1.0.2 업데이트가 필요합니다.**
+
+다른 버전에서는 정상 동작을 보장하지 않습니다.
 
 ## 한국어화 범위
 
