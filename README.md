@@ -87,7 +87,7 @@ Nintendo Switch판 **EVE rebirth terror** 비공식 한국어 패치입니다.
 
 ## 이미지 번역
 
-상태: 확인 필요
+상태: 완료
 
 ## 동영상 자막
 
